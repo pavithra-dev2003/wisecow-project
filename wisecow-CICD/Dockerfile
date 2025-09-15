@@ -13,7 +13,7 @@ RUN apt-get update && apt-get install -y \
 WORKDIR /app
 
 # Copy wisecow script into the container
-COPY app/wisecow.sh /wisecow.sh
+COPY ./wisecow.sh /wisecow.sh
 
 # Give execution permission
 RUN chmod +x /app/wisecow.sh
