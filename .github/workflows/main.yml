@@ -22,7 +22,7 @@ jobs:
       - name: Build and Push Docker Image
         uses: docker/build-push-action@v5
         with:
-          context: wisecow               # root of repo where Dockerfile is
+          context: .               # root of repo where Dockerfile is
           file: ./wisecow/Dockerfile        # adjust if Dockerfile in subfolder
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/wisecow:${{ github.run_number }}
