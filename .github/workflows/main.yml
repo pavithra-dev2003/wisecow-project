@@ -22,8 +22,8 @@ jobs:
       - name: Build and Push Docker Image
         uses: docker/build-push-action@v5
         with:
-          context: ./wisecow-CICD               # root of repo where Dockerfile is
-          file: ./wisecow-CICD/Dockerfile        # adjust if Dockerfile in subfolder
+          context: ./wisecow-CICD           # 👈 your folder
+          file: ./wisecow-CICD/Dockerfile   # 👈 Dockerfile inside the folder
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/wisecow:${{ github.run_number }}
 
