@@ -1,25 +1,17 @@
-# Use a lightweight base image with bash
-FROM debian:bullseye-slim
+# Use official lightweight image
+FROM ubuntu:20.04
 
-# Install required dependencies: fortune-mod, cowsay, netcat
-RUN apt-get update && apt-get install -y \
-    fortune-mod \
-    cowsay \
-    netcat \
-    --no-install-recommends && \
-    rm -rf /var/lib/apt/lists/*
-
-# Set working directory
+# Set working directory inside container
 WORKDIR /app
 
-# Copy wisecow script into the container
-COPY ./wisecow.sh /wisecow.sh
+# Copy script into container
+COPY wisecow.sh /app/wisecow.sh
 
-# Give execution permission
+# Make script executable
 RUN chmod +x /app/wisecow.sh
 
-# Expose the default port
+# Expose application port
 EXPOSE 4499
 
 # Run the script
-CMD ["/app/wisecow.sh"]
+CMD ["./wisecow.sh"]
